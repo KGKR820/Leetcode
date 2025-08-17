@@ -11,7 +11,7 @@ int singleNumber(vector<int>& nums) {
         
     }
 int main(){
-vector<int> nums = {4,1,2,1,2};
+vector<int> nums = {4,1,5,1,2,4,2};
 cout << singleNumber(nums);
     return 0;
 }
