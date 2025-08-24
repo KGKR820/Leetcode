@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "functional": "cpp",
+        "format": "cpp",
+        "fstream": "cpp",
+        "istream": "cpp",
+        "ranges": "cpp",
+        "streambuf": "cpp",
+        "variant": "cpp"
+    }
+}
