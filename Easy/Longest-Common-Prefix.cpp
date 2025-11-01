@@ -1,29 +1,35 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-string find(vector<string> strs) {
-    if (strs.empty()) return "";
-      int min=0;
-   for(string str:strs){
-       if(min<=str.length()){
-        min = str.length();
-       }
-   }
-   string lcp;
-for(int i=0;i<min;i++){
-    char cmn = strs[0][i];
-    for(int j=1;j<strs.size();j++){
-        if(cmn != strs[j][i]){
-            return lcp;
+    string longestCommonPrefix(vector<string>& strs) {
+        if(strs.size() == 1){
+            return strs[0];
         }
+        string output = "";
+        for(int i=0;i<min(strs[0].size(),strs[1].size());i++){
+            if(strs[0][i] == strs[1][i]){
+                output.push_back(strs[0][i]);
+            }
+            else{
+                break;
+            }
+        }
+        for(int i=2;i<strs.size();i++){
+            if(output == ""){
+                return "";
+            }
+            else if(strs[i].substr(0,output.size()) != output){
+                string temp ="";
+                for(int j=0;j<output.size();j++){
+                    if(strs[i][j] == output[j]){
+                        temp.push_back(output[j]);
+                    }
+                    else{
+                        break;
+                    }
+                }
+                output = temp;
+            }
+        }
+        return output;
     }
-    lcp += cmn;
-}
-   return lcp;
-}
-
-int main(){
-vector <string> strs = {"peppa","pepo","pepsi"};
-cout << find(strs);
-    return 0;
-}
